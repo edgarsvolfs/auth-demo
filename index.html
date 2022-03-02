@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Google auth demo</title>
+        <meta name ="google-signin-client_id" content="141099919835-smn9ue7v0ugsnkt2damm42ablp416je7.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    </head>
+
+    <body>
+        <h1>test</h1>
+        <div class = "g-signin2" data-onsuccess="onSignIn"></div>
+        <div id ="content"></div>
+
+    </body>
+
+<script> 
+    function onSignIn(googleUser){
+        console.log('user is ' + JSON.stringify(googleUser.getBasicProfile()));
+        var profile = googleUser.getBasicProfile();
+
+        document.querySelector('#content').innerText =
+         profile.getName()+ "\n" + profile.getGivenName()+ profile.getFamilyName().charAt(0) + "\n" + profile.getEmail() + "\n" + "id = " + profile.getId();
+    }
+</script>
+
+</html>
